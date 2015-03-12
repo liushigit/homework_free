@@ -1,0 +1,84 @@
+<!DOCTYPE html>{% load staticfiles %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{%block title%}Hello{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'css/styleshw.0.5.css'%}">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+	{% block morecss %}{% endblock %}
+</head>
+<body>
+<div id="wrap">
+{% if is_teacher %}
+	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+{% else %}
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+{% endif %}
+<div class="container">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      	</button>
+		<a class="navbar-brand" href="#">H&amp;W<small> beta</small></a>
+	</div>
+	<div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+	<ul class="nav navbar-nav">
+		{% if is_teacher %}
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">课 <b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="{% url 'homework:course-list' %}">当前的课</a></li>
+				<li><a href="{% url 'homework:old-course-list' %}">已归档的课</a></li>
+			</ul>
+		</li>
+		{% endif %}
+		{% if is_student %}
+			<li><a href ="{% url 'homework:my-courses' %}">我的课</a></li>
+		{% endif %}
+	</ul>
+	
+	<ul class="nav navbar-nav navbar-right">
+		{% if user.is_authenticated %}
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="{% url 'account:change-pass' %}">修改密码</a></li>
+				<li><a href="{% url 'account:update-profile' %}">修改信息</a></li>
+			</ul>
+		</li>
+		<li><a href ="{% url 'account:logout' %}">注销</a></li>
+		{% endif %}
+	</ul>
+
+</div> <!-- collapse -->
+</div>
+</nav>
+<div class="container">
+{% if messages %}
+	<div class="messages">
+		{% for message in messages %}<div{% if message.tags %} class="{{ message.tags }}"{% endif %}><button type="button" class="close" data-dismiss="alert">&times;</button>{{ message }}</div>{% endfor %}
+	</div>
+{% endif %}
+<div class="row">
+	{% block bread %}{% endblock %}
+</div>
+{% block content %}{% endblock %}
+</div>
+</div>
+<div id="footer">
+	<div class="container">
+		<p class="muted credit pull-right">&copy;&nbsp;Liu Shi</p>
+	</div>
+</div>
+{% if DEBUG %}<script src="{% static 'js/vendor/jquery-1.10.2.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+{% else %}<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.js"></script>
+{% endif %}
+{% block morescripts %}{% endblock %}
+</body>
+</html>

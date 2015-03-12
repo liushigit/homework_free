@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-4.6.dtd">
+<!-- eric4 project file for project homework2013 -->
+<!-- Saved: 2014-03-18, 10:40:54 -->
+<!-- Copyright (C) 2014 ,  -->
+<Project version="4.6">
+  <Language>en</Language>
+  <ProgLanguage mixed="0">Python</ProgLanguage>
+  <ProjectType>Console</ProjectType>
+  <Description></Description>
+  <Version>0.1</Version>
+  <Author></Author>
+  <Email></Email>
+  <Sources>
+    <Source>homework/settings.py</Source>
+    <Source>homework/urls.py</Source>
+    <Source>homework/wsgi.py</Source>
+    <Source>homework/__init__.py</Source>
+    <Source>manage.py</Source>
+    <Source>__init__.py</Source>
+    <Source>templates/base.html</Source>
+    <Source>homeworkapp/__init__.py</Source>
+    <Source>homeworkapp/models.py</Source>
+    <Source>homeworkapp/tests.py</Source>
+    <Source>homeworkapp/urls.py</Source>
+    <Source>homeworkapp/views.py</Source>
+    <Source>homeworkapp/templates/homeworkapp/course_list.html</Source>
+    <Source>homeworkapp/templates/homeworkapp/course_form.html</Source>
+    <Source>homeworkapp/decorators.py</Source>
+    <Source>account/__init__.py</Source>
+    <Source>account/admin.py</Source>
+    <Source>account/backends.py</Source>
+    <Source>account/forms.py</Source>
+    <Source>account/models.py</Source>
+    <Source>account/tests.py</Source>
+    <Source>account/urls.py</Source>
+    <Source>account/views.py</Source>
+    <Source>account/templates/account/change_pw.html</Source>
+    <Source>account/templates/account/form_snippet.html</Source>
+    <Source>account/templates/account/index.html</Source>
+    <Source>account/templates/account/login.html</Source>
+    <Source>account/templates/account/not_activated.html</Source>
+    <Source>account/templates/account/welcome.html</Source>
+    <Source>account/templates/registration/activation_complete.html</Source>
+    <Source>account/templates/registration/activation_email_subject.txt</Source>
+    <Source>account/templates/registration/registration_closed.html</Source>
+    <Source>account/templates/registration/registration_complete.html</Source>
+    <Source>account/templates/registration/registration_form.html</Source>
+    <Source>static/css/bootstrap.css</Source>
+    <Source>static/css/bootstrap.min.css</Source>
+    <Source>static/css/bootstrap-theme.css</Source>
+    <Source>static/css/bootstrap-theme.min.css</Source>
+    <Source>static/js/bootstrap.js</Source>
+    <Source>static/js/bootstrap.min.js</Source>
+    <Source>static/js/cachaload.js</Source>
+    <Source>user_profiles/__init__.py</Source>
+    <Source>user_profiles/models.py</Source>
+    <Source>user_profiles/tests.py</Source>
+    <Source>user_profiles/views.py</Source>
+    <Source>homeworkapp/templates/homeworkapp/assignment_form.html</Source>
+    <Source>homeworkapp/migrations/__init__.py</Source>
+    <Source>homeworkapp/templates/homeworkapp/assignment_list.html</Source>
+    <Source>homeworkapp/templates/homeworkapp/assignment_update_form.html</Source>
+    <Source>homeworkapp/management/commands/addstudents.py</Source>
+    <Source>homeworkapp/management/commands/enrol.py</Source>
+    <Source>homeworkapp/templates/homeworkapp/my_courses.html</Source>
+    <Source>static/js/vendor/jquery-1.10.2.min.js</Source>
+    <Source>homeworkapp/templates/homeworkapp/my_assigns.html</Source>
+    <Source>user_profiles/c_processors.py</Source>
+    <Source>homeworkapp/templates/homeworkapp/submission_form.html</Source>
+    <Source>static/css/custom.css</Source>
+    <Source>homeworkapp/storage.py</Source>
+    <Source>static/js/upl_progress.js</Source>
+    <Source>s_progressbarupload/uploadhandler.py</Source>
+    <Source>s_progressbarupload/urls.py</Source>
+    <Source>s_progressbarupload/templatetags/__init__.py</Source>
+    <Source>s_progressbarupload/templatetags/progress_bar.py</Source>
+    <Source>s_progressbarupload/static/js/progress_bar.js</Source>
+    <Source>s_progressbarupload/views.py</Source>
+    <Source>static/js/bs_notice.js</Source>
+    <Source>homeworkapp/uploadhandler.py</Source>
+    <Source>general_tools_app/templatetags/add_class.py</Source>
+    <Source>homeworkapp/templatetags/__init__.py</Source>
+    <Source>homeworkapp/templatetags/time_delta.py</Source>
+    <Source>account/templates/errors_snippet.html</Source>
+    <Source>homeworkapp/templates/homeworkapp/submission_list.html</Source>
+    <Source>static/js/dropzone.js</Source>
+    <Source>homeworkapp/templates/homeworkapp/assignment_detail.html</Source>
+    <Source>homeworkapp/templates/homeworkapp/assignment_detail_stu.html</Source>
+    <Source>account/templates/account/update_profile.html</Source>
+  </Sources>
+  <Forms>
+  </Forms>
+  <Translations>
+  </Translations>
+  <Resources>
+  </Resources>
+  <Interfaces>
+  </Interfaces>
+  <Others>
+    <Other>templates/base.html</Other>
+    <Other>static/css/custom.css</Other>
+    <Other>homeworkapp/templates/homeworkapp/assignment_form.html</Other>
+    <Other>homeworkapp/templates/homeworkapp/assignment_list.html</Other>
+    <Other>static/js/bs_notice.js</Other>
+    <Other>homeworkapp/templates/homeworkapp/not_in_class.html</Other>
+    <Other>homeworkapp/templates/homeworkapp/submission_list.html</Other>
+    <Other>homeworkapp/templates/homeworkapp/assignment_detail.html</Other>
+    <Other>homeworkapp/templates/homeworkapp/assignment_detail_stu.html</Other>
+  </Others>
+  <Vcs>
+    <VcsType>None</VcsType>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.pyw" type="SOURCES" />
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES" />
+    <FiletypeAssociation pattern="*.py" type="SOURCES" />
+    <FiletypeAssociation pattern="*.ptl" type="SOURCES" />
+  </FiletypeAssociations>
+</Project>

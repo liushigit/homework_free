@@ -1,0 +1,89 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+
+html, body {
+	height: 100%;
+	font-family: Helvetica, Arial, "LiHei Pro Medium", "Microsoft YaHei",SimHei, Sans-serif;
+	background-color: white;/*#F9F9F6;*/
+}
+
+.navbar-default {
+	background-color: #b0f3f9/*#ecece0*/;
+	border-color: #b0f3f9/*#e9e9e3*/;
+}
+
+.breadcrumb {
+	background-color: #e9fcff;
+
+}
+h3, .h3 {
+	font-size: 1.2em;
+}
+h1,h2,h3,h4,h5,h6,.h1,.h2, .h3, .h4, .h5, .h6 {
+	font-family: Helvetica, Arial, "LiHei Pro Medium", "Microsoft YaHei",SimHei, Sans-serif;
+	font-weight: 300;
+}
+label, th {
+	font-weight: 400;
+}
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	margin: 0 auto -60px;
+	padding: 0 0 80px;
+}
+
+#footer {
+	height: 60px;
+}
+
+.credit {
+	margin-top: 20px;    
+}
+
+.muted {
+	color: #999;
+}
+
+form.pull-right {
+	margin-left: 15px;  
+}
+
+/*
+.container {
+	width: 970px !important;
+}
+
+@media (min-width: 768px) {
+	.container {
+		width: 970px;
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+		width: 970px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 970px;
+	}
+}
+
+@media (max-width: 768px) {
+	.container {
+		width: 970px;
+	}
+}
+
+#upload-progress {
+	width: 200px;
+	background-color: #eee;
+}
+
+.progress-bar {
+	height: 12px;
+	background-color: #333;
+}
+*/

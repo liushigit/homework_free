@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}归档课程{% endblock %}
+
+{% block bread %}
+<ol class="breadcrumb">
+	<li class="active">已归档的课</li>
+</ol>{% endblock %}
+{% block content %}
+<table class="table">
+	<tr>
+		<th>课名</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+	{% for i in object_list %}
+		<tr>
+			<td>{{i.name}}</td>
+			<td>
+				<a href="{% url 'homework:assign-list' slug=i.slug %}">作业 <span class="badge">{{i.n_assigns}}</span></a>
+			</td>
+			<td>
+				<form action="{% url 'homework:course-revive' pk=i.id %}" method="post">
+					{% csrf_token %}
+					<button type="submit" class="btn btn-default btn-sm">恢复</button>
+				</form>
+			</td>
+			<td>
+				<form action="{% url 'homework:course-delete' pk=i.id %}" method="post">
+					{% csrf_token %}
+					<button type="submit" class="btn btn-danger btn-sm">删除</button>
+				</form>
+			</td>
+		</tr>
+	{% endfor %}
+</table>
+<div class="form-group">
+	<a class="btn btn-default" href="{% url 'homework:course-new' %}">+</a>
+</div>
+{% endblock %}

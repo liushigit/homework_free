@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block bread %}
+<ol class="breadcrumb">
+	<li><a href="{% url 'homework:course-list' %}">我的课</a></li>
+	<li>新建</li>
+</ol>{% endblock %}
+
+{% block content %}
+<form action="{% url 'homework:course-new' %}" method="post" class="form-horizontal">
+	{% csrf_token %}
+	{% include 'account/form_snippet.html'  %}
+	<div class="form-group">
+		<div class="controls col-xs-offset-3 col-xs-6">
+			<button class="btn btn-primary pull-right" type="submit">新建</button> 
+		</div>
+	</div>
+</form>{% endblock %}

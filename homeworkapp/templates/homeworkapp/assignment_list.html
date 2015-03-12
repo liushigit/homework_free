@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}{{course.name}} - 作业列表{% endblock %}
+{% load time_delta %}
+{% block bread %}
+<ol class="breadcrumb">
+	<li>{{course.name}}</li>
+	<li class="active">作业列表</li>
+</ol>{% endblock %}
+
+{% block content %}
+<div class="row">
+<table class="table">
+	<thead>
+	<tr>
+		<th>作业</th>
+		<th>提交情况</th>
+		<th>截止时间</th>
+		<th></th><th></th>
+	</tr>
+	</thead>
+	<tbody>
+	{% for i in object_list %}
+		<tr>
+			<td><a href="{% url 'homework:assign-detail' pk=i.id %}">{{i.title}}</a></td>
+			<td><a href="{% url 'homework:submission-list' pk=i.id %}">Status</a></td>
+			<td>{{i.due_date | date2timedelta}}</td>
+			<td><a href="{% url 'homework:assign-edit' pk=i.id %}">编辑</a></td>
+			<td>
+				<form action="{% url 'homework:assign-del' pk=i.id %}" method="post">
+					{% csrf_token %}
+					<button type="submit" class="btn btn-danger btn-sm">删除</button>
+				</form>
+			</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+<div><a class="btn btn-default" href="{% url 'homework:assign-new' slug=course.slug %}">+</a></div>
+{% endblock %}

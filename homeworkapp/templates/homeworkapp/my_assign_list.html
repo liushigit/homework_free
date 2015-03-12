@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load time_delta %}
+
+
+{% block title %}H&amp;W - {{course.name}}{% endblock %}
+
+{% block bread %}
+<ol class="breadcrumb">
+	<li class="active">{{course.name}}</li>
+	<li class="active">作业列表</li>
+</ol>{% endblock %}
+
+{% block content %}
+<div class="row">
+<table class="table">
+<tr>
+	<th>作业</th>
+	<th>截止时间</th>
+	<th></th>
+	<th></th>
+</tr>
+{% for i,j in object_list %}
+	<tr>
+		<td><a href="{% url 'homework:assign-detail' pk=i.id %}">{{i.title}}</a></td>
+		<td>{{i.due_datetime|timedelta }}</td>
+		<td>
+			<a class="btn btn-default btn-xs {% if i.is_due %}disabled{%endif%}"
+			 href="{% url 'homework:my-upload' pk=i.id %}">Upload</a>
+		</td>
+		<td>
+			{% if j %}
+			<span class="glyphicon glyphicon-ok-circle"></span>
+			{%endif%}
+		</td>
+	</tr>
+{% endfor %}
+</table></div>{% endblock %}

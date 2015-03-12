@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}我的课 - {{object.course.name}} - 编辑作业{% endblock %}
+
+{% block bread %}
+<ol class="breadcrumb">
+	<li><a href="{% url 'homework:course-list' %}">我的课</a></li>
+	<li><a href="{% url 'homework:assign-list' slug=object.course.slug %}">{{object.course.name}}</a></li>
+	<li class="active">编辑作业</li>
+</ol>{% endblock %}
+
+{% block content %}
+<form action="{% url 'homework:assign-edit' pk=object.pk %}" method="post" class="form-horizontal" enctype="multipart/form-data">
+	{% csrf_token %}
+	{% include 'account/form_snippet.html' %}
+	{{ formset.as_p }}
+	<div class="form-group">
+		<div class="controls col-xs-offset-3 col-xs-6">
+			<button class="btn btn-primary" type="submit">更新</button> 
+		</div>
+	</div>
+</form>
+{% endblock %}

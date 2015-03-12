@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title%}注册{% endblock %}
+
+{% block content %}
+<form class="col-xs-6 form-horizontal" method="post" action="{% url 'account:register' %}">
+	{% csrf_token %}
+	<fieldset>
+		<legend>注册</legend>
+		{% include 'account/form_snippet.html'  %}
+	</fieldset>
+	<div class="form-group">
+		<div class="controls col-xs-offset-3 col-xs-6">
+			<button class="btn btn-primary" type="submit">提交</button> 
+		</div>
+	</div>
+</form>
+{% endblock %}
+
+{% block morescript %}<script src="{% static 'js/cachaload.js' %}"></script>{% endblock %}

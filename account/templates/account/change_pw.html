@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title%}修改密码{% endblock %}
+
+{% block content %}
+<form class="col-xs-12 form-horizontal" method="post" action="{% url 'account:change-pass' %}" autocomplete="on">
+	{% include "errors_snippet.html" %}
+	{% csrf_token %}
+	{% include 'account/form_snippet.html'  %}
+	<div class="form-group">
+		<div class="col-md-6 col-md-offset-3 col-md-offset-0 col-xs-12">
+			<input class="btn btn-primary" type="submit" value="更新" /> 
+		</div>
+	</div>
+</form>
+{% endblock %}

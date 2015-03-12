@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}H&amp;W 上传作业{% endblock %}
+{% block morecss %}
+<style>
+.dz-default{background-color:#f9f9f9;padding:16px;border:2px dashed #ddd;border-radius:4px;height:52px;-webkit-transition-property:background-color,height;-moz-transition-property:background-color,height;-o-transition-property:background-color,height;transition-property:background-color,height;-webkit-transition-duration:0.5s;-moz-transition-duration:0.5s;-o-transition-duration:0.5s;transition-duration:0.5s}.dz-progress{margin:8px 0;border:1px solid #ddd;width:100%;height:10px}.dz-upload{background-color:#b3f3bb;display:block;height:8px;padding:0;margin:0}.dz-preview{border:1px solid #e0e0e0;background-color:#f2f2f2;margin:12px 0 12px;border-radius:4px;padding:16px}.dz-preview.dz-error{color:#ebadad;border:1px solid #f3cece;background-color:#faebeb}.dz-preview.dz-success{border:1px solid #d2efd2;background-color:#ecf8ec}.dz-error-mark,.dz-success-mark,.dz-success .dz-progress,.dz-error .dz-progress{display:none}.dz-error .dz-error-message{display:block;color:#c33;background-color:#f5d6d6;margin-top:4px;padding:0px 12px;border-width:0 0 0 4px;border-style:solid;border-color:#c33;clear:both}.dz-default.dz_dragover{height:100px;background-color:#b9eaff}
+</style>
+{% endblock%}
+
+{% block bread %}
+<ol class="breadcrumb">
+	<li><a href="{% url 'homework:my-courses' %}">我的课</a></li>
+	<li><a href="{% url 'homework:my-assigns' slug=assignment.course.slug %}">{{assignment.course.name}}</a></li>
+	<li class="active">上传作业</li>
+</ol>{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+	<div class="alert alert-danger">
+		{{form.errors}}
+	</div>
+{% endif %}
+<form action="{% url 'homework:my-upload' pk=assignment.id %}" method="post" class="uploadform dropzone" enctype="multipart/form-data" id="drop_zone_form">
+	{% csrf_token %}
+	<div class="fallback" >
+		<input type="file" id="id_file" name="file">
+		<input type=submit value="ok"/>
+	</div>
+</form>
+{% endblock %}
+
+{% block morescripts %}
+<script type="text/javascript" src="{% static 'js/dropzone.min.js' %}"></script>
+<script type="text/javascript">
+Dropzone.options.dropZoneForm = {
+	maxFilesize: 10,
+	maxFiles: 1,
+	dictDefaultMessage: "把你的作业拖进来！",
+	dictMaxFilesExceeded: "最多只能上传1个文件。",
+	init: function() {
+		function reset_class(file) {
+			$(".dz-default").removeClass("dz_dragover");
+		};
+		this.on("dragover", function (file) {
+			$(".dz-default").addClass("dz_dragover");
+		});
+		this.on("dragleave", reset_class);
+		this.on("drop", reset_class);
+	}
+}
+</script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}H&amp;W - 作业详情 - {{object.title}}{% endblock %}
+
+{% block bread %}
+<ol class="breadcrumb">
+	<li><a href="{% url 'homework:my-assigns' slug=object.course.slug %}">{{object.course.name}}</a></li>
+	<li class="active">作业详情</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+
+<h2>{{object.title}}</h2>
+<h3>作业要求</h3>
+<div>{{object.description | safe}}</div>
+<h3>截止日期</h3>
+<p>{{object.due_date}}</p>
+{% with attaches=object.attachment_set.all %}
+{% if attaches %}
+<h3>附件</h3>
+<ul>{% for i in attaches %}
+	<li><a href="{{i.file.url}}">{{i.file.name}}</a></li>
+{% endfor %}</ul>
+{% endif %}{% endwith %}
+{% endblock %}

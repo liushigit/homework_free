@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load time_delta %}
+
+{% block bread %}
+<ol class="breadcrumb">
+	<li><a href="{% url 'homework:assign-list' slug=object.course.slug %}">{{object.course.name}}</a></li>
+	<li class="active">提交情况</li>
+</ol>{% endblock %}
+
+{% block content %}
+<table class="table">
+	<thead>
+	<tr>
+		<th>#</th>
+		<th>学生</th>
+	</tr>
+	</thead>
+	<tbody>
+	{% for i in object_list %}
+		<tr>
+			<td>{{forloop.counter}}</td>
+			<td>{{i.user.username}}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>{% endblock %}

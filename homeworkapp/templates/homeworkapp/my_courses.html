@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}H&amp;W - 我的课{% endblock %}
+
+{% block bread %}
+<ol class="breadcrumb">
+	<li class="active">我的课</li>
+</ol>{% endblock %}
+
+{% block content %}
+<div class="row">
+<ul class="list-group">
+	{% for i in object_list %}
+		<li class="list-group-item">
+			<span class="badge">{{i.n_assigns}}</span>
+			<a href="{% url 'homework:my-assigns' i.slug %}">{{i.name}}</a>
+		</li>
+	{% endfor %}
+</ul></div>{% endblock %}
